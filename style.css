@@ -2,20 +2,25 @@
   box-sizing: border-box;
 }
 
+:root {
+  --primary-color: #ffead0;
+  --secondary-color: #855928;
+}
+
 body {
-  background-color: #34495e;
-  color: #fff;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 80vh;
   margin: 0;
-  overflow: hidden;
+  overflow: hidden; /*dont show any scrollbar */
 }
 
 h1 {
-  margin: 20px 0 0;
+  margin: 80px 0 20px 0;
 }
 
 .game-container {
@@ -28,7 +33,7 @@ h1 {
 
 .figure-container {
   fill: transparent;
-  stroke: #fff;
+  stroke: var(--secondary-color);
   stroke-width: 4px;
   stroke-linecap: round;
 }
@@ -57,18 +62,18 @@ h1 {
 .word {
   display: flex;
   position: absolute;
-  bottom: 10px;
+  bottom: 2px;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .letter {
-  border-bottom: 3px solid #2980b9;
+  border-bottom: 3px solid #d48b37;
   display: inline-flex;
   font-size: 30px;
   align-items: center;
   justify-content: center;
-  margin: 0 3px;
+  margin: 7px 3px 0 3px;
   height: 50px;
   width: 20px;
 }
@@ -87,21 +92,26 @@ h1 {
 }
 
 .popup {
-  background: #2980b9;
+  background: var(--secondary-color);
   border-radius: 5px;
   box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.1);
   padding: 20px;
   text-align: center;
 }
 
+.popup h2 {
+  color: var(--primary-color);
+}
+
 .popup button {
   cursor: pointer;
-  background-color: #fff;
-  color: #2980b9;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
   border: 0;
   margin-top: 20px;
   padding: 12px 20px;
   font-size: 16px;
+  font-weight: 600;
 }
 
 .popup button:active {
@@ -117,7 +127,7 @@ h1 {
   border-radius: 10px 10px 0 0;
   padding: 15px 20px;
   position: absolute;
-  bottom: -50px;
+  bottom: -50px; /*To get out of the screen and use JS to slide in by translate y(-50px)*/
   transition: transform 0.3s ease-in-out;
 }
 
